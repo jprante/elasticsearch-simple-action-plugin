@@ -52,7 +52,7 @@ public class TransportSimpleAction extends TransportAction<SimpleRequest, Search
                                  TransportSearchQueryAndFetchAction queryAndFetchAction,
                                  TransportSearchScanAction scanAction,
                                  TransportSearchCountAction countAction) {
-        super(settings, threadPool);
+        super(settings, SimpleAction.NAME, threadPool);
         this.clusterService = clusterService;
         this.dfsQueryThenFetchAction = dfsQueryThenFetchAction;
         this.queryThenFetchAction = queryThenFetchAction;

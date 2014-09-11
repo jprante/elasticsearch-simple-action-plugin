@@ -5,15 +5,14 @@ import org.elasticsearch.action.ActionRequestBuilder;
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.Client;
-import org.elasticsearch.client.internal.InternalGenericClient;
 import org.elasticsearch.index.query.QueryBuilders;
 
-public class SimpleRequestBuilder extends ActionRequestBuilder<SimpleRequest, SearchResponse, SimpleRequestBuilder> {
+public class SimpleRequestBuilder extends ActionRequestBuilder<SimpleRequest, SearchResponse, SimpleRequestBuilder, Client> {
 
     public SimpleRequestBuilder(Client client) {
-        super((InternalGenericClient)client, new SimpleRequest());
+        super(client, new SimpleRequest());
 
-        // a built-in query definition
+        // here: a built-in query definition, a match all query
 
         SearchRequestBuilder searchRequestBuilder = new SearchRequestBuilder(client);
         searchRequestBuilder
@@ -29,6 +28,6 @@ public class SimpleRequestBuilder extends ActionRequestBuilder<SimpleRequest, Se
 
     @Override
     protected void doExecute(ActionListener<SearchResponse> listener) {
-        ((Client)client).execute(SimpleAction.INSTANCE, request(), listener);
+        client.execute(SimpleAction.INSTANCE, request(), listener);
     }
 }

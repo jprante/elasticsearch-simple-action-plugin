@@ -1,10 +1,10 @@
 package org.xbib.elasticsearch.action.simple;
 
-import org.elasticsearch.action.Action;
+import org.elasticsearch.action.ClientAction;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.Client;
 
-public class SimpleAction extends Action<SimpleRequest, SearchResponse, SimpleRequestBuilder> {
+public class SimpleAction extends ClientAction<SimpleRequest, SearchResponse, SimpleRequestBuilder> {
 
     public static final SimpleAction INSTANCE = new SimpleAction();
 
