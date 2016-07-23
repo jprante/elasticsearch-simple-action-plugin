@@ -5,6 +5,9 @@
 /target
 .DS_Store
 *.iml
+*~
 /.settings
 /.classpath
 /.project
+/.gradle
+/build

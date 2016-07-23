@@ -1,18 +1,15 @@
-
 package org.xbib.elasticsearch.plugin.simple;
 
 import org.elasticsearch.action.ActionModule;
-import org.elasticsearch.plugins.AbstractPlugin;
+import org.elasticsearch.plugins.Plugin;
 import org.xbib.elasticsearch.action.simple.SimpleAction;
-import org.xbib.elasticsearch.action.simple.TransportSimpleAction;
+import org.elasticsearch.action.search.TransportSimpleAction;
 
-public class SimplePlugin extends AbstractPlugin {
+public class SimplePlugin extends Plugin {
 
     @Override
     public String name() {
-        return "simple" + "-"
-                + Build.getInstance().getVersion() + "-"
-                + Build.getInstance().getShortHash();
+        return "simple";
     }
 
     @Override
